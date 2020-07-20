@@ -70,10 +70,10 @@ requiredNamed.add_argument(
 )
 
 requiredNamed.add_argument(
-    '-dv', '--disable-verification',
+    '-dd', '--disable-auto-detection',
     action='store_true',
-    help='Do not verify whether file exists on storage.',
-    dest='disable_verification',
+    help='Do not automatically detect file attributes and do not check whether file exists on storage.',
+    dest='disable_auto_detection',
     default=False
 )
 
@@ -113,7 +113,7 @@ def register_file(storage_file_id, size, checksum):
         'xattrs': {
             'checksum': checksum
         },
-        'verifyExistence': not args.disable_verification
+        'autoDetectAttributes': not args.disable_auto_detection
     }
     try:
         response = requests.post(REGISTER_FILE_ENDPOINT.format(args.host), json=payload, headers=headers)
