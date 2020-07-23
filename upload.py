@@ -96,7 +96,7 @@ parser.add_argument(
     default=False)
 
 parser.add_argument(
-    '--config-file', '-cf',
+    '--config-file',
     action='store',
     is_config_file=True,
     help='Path to config file which will override the default {0}'.format(DEFAULT_CONFIG_FILE),
